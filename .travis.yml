@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t faliqkun/docker-react -f Dockerfile.dev .
+  # or any tag u can use
+
+script:
+  - docker run -e CI=true faliqkun/docker-react npm run test
+
+language: generic
